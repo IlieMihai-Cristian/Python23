@@ -56,9 +56,45 @@ var_index = 'programare'
 # count(parametru) -> numara de cate ori gaseste parametru in string
 # var_capital = var_index.capitalize()
 # print(var_capital)
+var_4 = 'Metoda folosita la stringuri'
+# print(var_4.find('folosita')) # returneaza indexul primei echivalente gasite
+# print(var_4.find('zzzzz')) # daca nu gaseste returneaza -1
+# print(var_4.index('folosita')) # la fel ca metoda .find
+# print(var_4.index('zzzzz')) # daca nu gaseste da eroare
+
+var_5 = 'Ana are mere!'
+# print(var_5.split()) # transforma un sire de caractere intr-o lista de substringuri
+# print(var_5.replace('mere', 'pere'))
+
+var_6 = '   programare   '
+# print(var_6.lstrip())
+# print(var_6.rstrip())
+# print(var_6.strip())
+
+var_7 = ['Ana', 'are', 'mere!']
+# print(' '.join(var_7))
 
 
 
-""" interpolare la stringuri """
-# TODO: de scris interpolarea
+""" interpolare variabilelor la stringuri """
 
+txt_1 = 'Python'
+txt_2 = 'Scoala'
+txt_3 = 'IT'
+
+# caz 1 cu concatenare
+# print('Grupa de ' + txt_1 + ' de la ' + txt_2 + ' Informala de ' + txt_3 + '!')
+
+# caz 2 cu .format
+    # cu acolade goale
+# print('Grupa de {} de la {} Informala de {}!'.format(txt_1, txt_2, txt_3))
+    # cu index in acolade
+# print('Grupa de {0} de la {2} Informala de {1}!'.format(txt_1, txt_2, txt_3))
+    # cu denumire variabila in acolade
+# print('Grupa de {str_1} de la {str_2} Informala de {str_3}!'.format(str_1='Python', str_2='Scoala', str_3='IT'))
+
+# caz 3 cu f- string
+# print(f'Grupa de {txt_1} de la {txt_2} Informala de {txt_3}!')
+
+# caz 4 varianta veche din Python 2.0
+# print('Grupa de %s de la %s Informala de %s!' % (txt_1, txt_2, txt_3))
