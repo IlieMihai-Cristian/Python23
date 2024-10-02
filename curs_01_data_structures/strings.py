@@ -61,3 +61,4 @@ var_index = 'programare'
 
 """ interpolare la stringuri """
 # TODO: de scris interpolarea
+
