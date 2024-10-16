@@ -187,18 +187,38 @@ second_number = 20
 # daca este zero afisam ca nr este zero
 # daca numarul este negativ afisam mesaj ca am introdus negativ si transformam in pozitiv
 
-user_input = input("Va rugam introduceti un nr.: ")
-# if user_input.isdigit():
-if user_input := int(user_input):
-    # user_input = int(user_input)
-    if user_input > 0:
-        if user_input < 10:
-            print(f'Nr este mai mic decat 10.\nNr ales este {user_input}')
-        else:
-            print(f'Nr este mai mare sau egal decat 10.\nNr ales este {user_input}')
-    elif user_input < 0:
-        print(f'Nr este mai mic decat 0.\nNr ales este {user_input}')
-        # print(f'Nr convertit pozitiv este {user_input*-1}')
-        print(abs(user_input))
-    else:
-        print('Numarul este 0')
+# user_input = input("Va rugam introduceti un nr.: ")
+# # if user_input.isdigit():
+# if user_input := int(user_input):
+#     # user_input = int(user_input)
+#     if user_input > 0:
+#         if user_input < 10:
+#             print(f'Nr este mai mic decat 10.\nNr ales este {user_input}')
+#         else:
+#             print(f'Nr este mai mare sau egal decat 10.\nNr ales este {user_input}')
+#     elif user_input < 0:
+#         print(f'Nr este mai mic decat 0.\nNr ales este {user_input}')
+#         # print(f'Nr convertit pozitiv este {user_input*-1}')
+#         print(abs(user_input))
+#     else:
+#         print('Numarul este 0')
+
+
+""" DECLARATIA MATCH - CASE """
+
+# ex:
+
+car = 'BMWQ'
+
+match car:
+    case 'Audi' | 'BMW':
+        print('German car')
+    case 'Fiat':
+        print('Italian car')
+    case 'Toyota':
+        print('Japanese car')
+    case 'Dacia':
+        print('Romanian car')
+    case _:
+        print('other car')
+
