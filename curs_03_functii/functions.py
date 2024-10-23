@@ -123,16 +123,16 @@
 
 # **kwargs
 
-# def suma(a, b=0, *args, **kwargs):
-#     # print(type(kwargs)) # dict
-#     # print(kwargs)
-#     total = 0
-#     initial = a + b
-#     for x in args:
-#         total += x
-#     for y in kwargs.values():
-#         total += y
-#     return initial + total
+def suma(a, b=0, *args, **kwargs):
+    # print(type(kwargs)) # dict
+    # print(kwargs)
+    total = 0
+    initial = a + b
+    for x in args:
+        total += x
+    for y in kwargs.values():
+        total += y
+    return initial + total
 
 # var = suma(1, 2, 3, 4, 5, 6, c=7, d=8, e=9)
 # print(var)
