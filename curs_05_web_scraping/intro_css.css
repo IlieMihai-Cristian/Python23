@@ -1,0 +1,12 @@
+table {
+    border: 2px solid black;
+}
+th {
+    border: 2px solid black;
+}
+.my_italic {
+    font-weight: 800;
+}
+#footer2_id {
+    background-color: aqua;
+}
