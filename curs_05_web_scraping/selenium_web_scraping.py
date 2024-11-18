@@ -20,6 +20,7 @@ body = table_body.text.split('\n')
 # print(len(header)) #32
 # print(len(body)) #7936
 
+# TABEL FINAL GENERAT PE RANDURI
 body_rows = []
 counter = 0
 for i in range(0, len(body), len(header)):
@@ -28,15 +29,26 @@ for i in range(0, len(body), len(header)):
 
 # print(body_rows)
 
-df = pd.DataFrame(body_rows, columns=header)
-print(df)
-df.to_excel('Curs_BNR_2023.xlsx', index=False)
+# df = pd.DataFrame(body_rows, columns=header)
+# print(df)
+# df.to_excel('Curs_BNR_2023.xlsx', index=False)
 
 
+# TABEL FINAL GENERAT PE COLOANE
 
-# Tema
-# https://www.mai.gov.ro/informare-covid-19-grupul-de-comunicare-strategica-1-martie-ora-13-00/
-# https://www.mai.gov.ro/informare-covid-19-grupul-de-comunicare-strategica-2-martie-ora-13-00/
-# https://www.mai.gov.ro/informare-covid-19-grupul-de-comunicare-strategica-3-martie-ora-13-00/
-# https://www.mai.gov.ro/informare-covid-19-grupul-de-comunicare-strategica-4-martie-ora-13-00/
-# https://www.mai.gov.ro/informare-covid-19-grupul-de-comunicare-strategica-4-martie-ora-13-00-2/
+body_columns = {key: [] for key in range(len(header))}
+# print(body_columns)
+# print(body)
+
+# body_columns[0].append(0)
+# body_columns[1].append(1)
+
+counter = 0
+for j in body:
+    body_columns[counter % len(header)].append(j)
+    counter += 1
+# print(body_columns)
+
+df = pd.DataFrame(body_columns)
+# df.to_excel("Curs_BNR_2023_2.xlsx", header=header, index=False)
+df.to_csv('Curs_BNR_2023_2.csv', header=header, index=False)

@@ -38,3 +38,12 @@ for i in range(1, len(count_phones)+1):
                 driver.find_element(by=By.XPATH, value=f'//*[@id="card_grid"]/div[{i}]/div/div/div[4]/div[2]/form/button').submit()
                 break
 # print(count)
+
+
+
+# Tema
+# https://www.mai.gov.ro/informare-covid-19-grupul-de-comunicare-strategica-1-martie-ora-13-00/
+# https://www.mai.gov.ro/informare-covid-19-grupul-de-comunicare-strategica-2-martie-ora-13-00/
+# https://www.mai.gov.ro/informare-covid-19-grupul-de-comunicare-strategica-3-martie-ora-13-00/
+# https://www.mai.gov.ro/informare-covid-19-grupul-de-comunicare-strategica-4-martie-ora-13-00/
+# https://www.mai.gov.ro/informare-covid-19-grupul-de-comunicare-strategica-4-martie-ora-13-00-2/
