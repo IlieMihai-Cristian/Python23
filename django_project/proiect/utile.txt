@@ -1,0 +1,11 @@
+activare env pentru windows       .\env\Scripts\activate
+activare env pentru mac/linux     source env/bin/activate
+dezactivare env                   deactivate
+creare proiect                    py/python3 manage.py startproject "denumire proiect"
+creare superuser                  py/python3 manage.py createsuperuser
+aplicatie(modul) nou in proiect   py/python3 manage.py startapp "denumire aplicatie"
+pornire server                    py/python3 manage.py runserver (8001)
+migrare date sql 1                py/python3 manage.py makemigrations
+migrare date sql 2                py/python3 manage.py migrate
+
+
