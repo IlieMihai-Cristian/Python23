@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block content %}
+    <a class="btn btn-primary" style="margin: 10px 10px" href="{% url 'locations:adaugare' %}">Adaugare Locatii</a>
+    <table class="table">
+        <thead>
+            <tr>
+                <th> Index </th>
+                <th> City </th>
+                <th> Country </th>
+                <th> Active </th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in location_list %}
+{#            {% for item in object_list %}#}
+                <tr>
+                    <td>{{ item.id }}</td>
+                    <td>{{ item.city }}</td>
+                    <td>{{ item.country }}</td>
+                    <td>{{ item.active }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    
+    
+    
+    
+    
+{% endblock %}
