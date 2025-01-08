@@ -3,14 +3,31 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
     </head>
     <body>
-        <div class="container">
-            <div class="row">
+        <div class="row">
+            <div class="col-md-12">
                 <nav>
-                    
+                    <div style="display:inline-flex; align-items: flex-start; margin: 10px">
+                        {% if request.user.is_authenticated %}
+                            <span style="color: blue">Hi, {{ request.user.username|upper }}!</span>
+                        {% endif %}
+                        <a class="btn btn-xs btn-info" style="margin-left: 10px" href="/admin/">Admin</a>
+        {#                    <a class="btn btn-xs btn-info" href="/logout/">Logout</a>#}
+                        {% if request.user.is_authenticated %}
+                            <form action="{% url 'logout' %}" method="post">
+                                {% csrf_token %}
+                                <button class="btn btn-xs btn-danger" style="margin-left: 10px" type="submit">Logout</button>
+                            </form>
+                        {% endif %}
+                    </div>
                 </nav>
             </div>
         </div>
     {% block content %}
     {% endblock %}
     </body>
+    <footer class="footer">
+        <div>
+            <p class="copyright" style="margin-left: 10px; margin-top:400px">© {% now 'Y' %} Scola Informala de IT </p>
+        </div>
+    </footer>
 </html>

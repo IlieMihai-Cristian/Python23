@@ -8,17 +8,28 @@
                 <th> City </th>
                 <th> Country </th>
                 <th> Active </th>
+                <th> Action </th>
             </tr>
         </thead>
         <tbody>
             {% for item in location_list %}
 {#            {% for item in object_list %}#}
-                <tr>
-                    <td>{{ item.id }}</td>
-                    <td>{{ item.city }}</td>
-                    <td>{{ item.country }}</td>
-                    <td>{{ item.active }}</td>
-                </tr>
+{#                {% if item.active == 1 %}#}
+                    <tr>
+                        <td>{{ item.id }}</td>
+                        <td>{{ item.city }}</td>
+                        <td>{{ item.country }}</td>
+                        <td>{{ item.active }}</td>
+                        <td>
+                            <a class="btn btn-warning" href="{% url 'locations:editare' item.id %}">Editare</a>
+                            {% if item.active == 1 %}
+                                <a class="btn btn-danger" href="{% url 'locations:stergere' item.id %}">Stergere</a>
+                            {% else %}
+                                <a class="btn btn-success" href="{% url 'locations:reactivare' item.id %}">Reactivare</a>
+                            {% endif %}
+                        </td>
+                    </tr>
+{#                {% endif %}#}
             {% endfor %}
         </tbody>
     </table>
