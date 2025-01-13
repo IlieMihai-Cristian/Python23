@@ -17,6 +17,11 @@
                                 {% csrf_token %}
                                 <button class="btn btn-xs btn-danger" style="margin-left: 10px" type="submit">Logout</button>
                             </form>
+                            {% if ready_to_work %}
+                                <a class="btn btn-success" style="margin-left: 10px" href="{% url 'locations:start_pontaj' %}">Pornire Pontaj</a>
+                            {% else %}
+                                <a class="btn btn-danger" style="margin-left: 10px" href="{% url 'locations:stop_pontaj' %}">Oprire Pontaj</a>
+                            {% endif %}
                         {% endif %}
                     </div>
                 </nav>

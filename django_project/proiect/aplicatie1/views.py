@@ -2,6 +2,7 @@ import datetime
 
 from django.contrib.auth.decorators import login_required, permission_required
 from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
+from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect
 from django.views.generic import ListView, CreateView, UpdateView
 from aplicatie1.models import Location, Pontaj
@@ -20,6 +21,12 @@ class LocationView(LoginRequiredMixin, ListView):
 
     # def get_queryset(self):
     #     return Location.objects.filter(active=True)
+
+    # def get_context_data(self, **kwargs):
+    #     context = super(LocationView, self).get_context_data(**kwargs)
+    #     context['ionel'] = [12, 25]
+    #     return context
+
 
 class CreateLocationView(LoginRequiredMixin, CreateView):
     model = Location
@@ -64,4 +71,16 @@ def restore_location(request, pk):
 
 @login_required
 def start_timesheet(request):
-    Pontaj.objects.create(user_id=request.user.id, start_date=datetime.datetime.now())
+    # Pontaj.objects.create(user_id=request.user.id, start_date=datetime.datetime.now())
+    new_instance = Pontaj()
+    new_instance.user_id = request.user.id
+    # new_instance.user = User.objects.get(id=request.user.id)
+    new_instance.start_date = datetime.datetime.now()
+    new_instance.save()
+    return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+
+
+@login_required
+def stop_timesheet(request):
+    Pontaj.objects.filter(user_id=request.user.id, end_date=None).update(end_date=datetime.datetime.now())
+    return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
