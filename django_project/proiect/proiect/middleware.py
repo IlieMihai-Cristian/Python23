@@ -1,3 +1,7 @@
+from http.client import HTTPResponse
+
+from django.http import HttpResponseRedirect
+
 from aplicatie1.models import Logs
 
 
@@ -19,7 +23,6 @@ class RefreshMiddleware:
 
     def __call__(self, request):
         if request.user.is_authenticated:
-            print(request.path)
             if request.method == "GET":
                 new_instance = Logs()
                 new_instance.user_id = request.user.id
@@ -34,3 +37,15 @@ class RefreshMiddleware:
                         break
                 Logs.objects.create(user_id=request.user.id, action=action, url=request.path)
         return self.get_response(request)
+
+
+class RedirectMiddleware:
+
+    def __init__(self, get_response):
+        self.get_response = get_response
+
+    def __call__(self, request):
+        if request.user.is_authenticated and request.path == '/':
+            return HttpResponseRedirect('locations')
+        return self.get_response(request)
+

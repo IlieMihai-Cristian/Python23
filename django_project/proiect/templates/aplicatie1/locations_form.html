@@ -1,11 +1,24 @@
 {% extends 'base.html' %}
 {% block content %}
-    <form method="post">
-        {% csrf_token %}
-        {% for field in form %}
-            {{ field.label }} {{ field }}
-            <span class="text-danger small">{{ field.errors }}</span>
-        {% endfor %}
-        <button type="submit" class="btn btn-success">Salveaza</button>
-    </form>
+        <form method="post">
+            {% csrf_token %}
+            {% if '/new_account/' in request.path %}
+                <div class="row">
+                   <div class="col-md-6 col-lg-offset-3">
+                        {% for field in form %}
+                            {{ field.label }} {{ field }}
+                            <span class="text-danger small">{{ field.errors }}</span>
+                        {% endfor %}
+                        <button type="submit" class="btn btn-success">Salveaza</button>
+                   </div>
+               </div>
+            {% else %}
+                {% for field in form %}
+                    {{ field.label }} {{ field }}
+                    <span class="text-danger small">{{ field.errors }}</span>
+                {% endfor %}
+                <button type="submit" class="btn btn-success">Salveaza</button>
+            {% endif %}
+        </form>
+    </div>
 {% endblock %}
