@@ -37,4 +37,4 @@ class CreateNewAccount(LoginRequiredMixin, PermissionRequiredMixin, CreateView):
     #     if form.is_valid():
 
 # georgeadi
-#  Xckvsl%3
+#  usernou1
